@@ -31,5 +31,20 @@ namespace WindowsFormsApp1 {
         private void label1_Click(object sender, EventArgs e) {
 
         }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e) {
+
+        }
+
+        private void btPow_Click(object sender, EventArgs e) {
+
+            int ans = Decimal.ToInt32(nudX.Value);
+            int count = Decimal.ToInt32(nudY.Value);
+            int num = ans;
+            for (int i = 0; i < count - 1; i++) {
+                ans = (ans * num);
+            }
+            tbResult.Text = ans.ToString();
+        }
     }
 }
