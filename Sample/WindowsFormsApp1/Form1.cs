@@ -38,13 +38,19 @@ namespace WindowsFormsApp1 {
 
         private void btPow_Click(object sender, EventArgs e) {
 
-            int ans = Decimal.ToInt32(nudX.Value);
+            /*int ans = Decimal.ToInt32(nudX.Value);
             int count = Decimal.ToInt32(nudY.Value);
             int num = ans;
-            for (int i = 0; i < count - 1; i++) {
-                ans = (ans * num);
-            }
-            tbResult.Text = ans.ToString();
+
+            for (int i = 0; i < count - 1; i++) {ans = (ans * num);}
+            
+            tbResult.Text = ans.ToString();*/
+
+            double resulut = Math.Pow((double)nudX.Value, (double)nudY.Value);
+            tbResult.Text = resulut.ToString();
+
+            //一行で書く場合↓
+            //tbResult.Text = (Math.Pow((double)nudX.Value, (double)nudY.Value)).ToString();
         }
     }
 }
