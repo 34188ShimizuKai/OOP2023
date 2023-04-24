@@ -14,7 +14,8 @@ namespace BallApp {
         private PictureBox pb;
         private List<SoccerBall> balls = new List<SoccerBall>();//ボール
         private List<PictureBox> pbs = new List<PictureBox>();//表示用
-        int count = 0;
+        private int count = 0;
+        private String tx = "ボールの個数:";
 
         static void Main(string[] args) {
             Application.Run(new Program());
@@ -26,7 +27,7 @@ namespace BallApp {
             this.BackColor = Color.Green;           
 
             this.MouseClick += Program_MouseClick;
-            this.Text = "ボールの個数：" + count;
+            this.Text = tx + count;
             moveTimer = new Timer();
             moveTimer.Interval = 1;//タイマーのインターバル（ｍｓ）
             moveTimer.Tick += MoveTimer_Tick;//デリゲート登録
@@ -45,8 +46,8 @@ namespace BallApp {
             
             balls.Add(soccerBall);
             pbs.Add(pb);
-            count++;
-            this.Text = "ボールの個数：" + count;
+
+            this.Text = tx + (++count);
  
 
             moveTimer.Start();//タイマースタート
