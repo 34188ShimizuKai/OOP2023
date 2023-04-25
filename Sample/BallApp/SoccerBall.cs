@@ -6,44 +6,32 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BallApp {
-    class SoccerBall {
+    class SoccerBall : Obj {
+
         //フィールド
-        private Image image;//画像データ
+        Random r = new Random();   //乱数インスタンス
 
-        private double posX;//X座標
-        private double posY;//Y座標
-
-        private double moveX = 0;//移動量（X方向）
-        private double moveY = 0;//移動量（Y方向）
-          Random r = new Random();
-        //コンストラクタ
-        public SoccerBall(double xp,double yp) {
-            Image = Image.FromFile(@"pic\soccer_ball.png");
-            PosX = xp;
-            PosY = yp;  
-
-            while (moveX == 0 || moveY == 0){
-                moveX = r.Next(-20, 20);
-                moveY = r.Next(-20, 20);
-            }
-        }
         //プロパティ
-        public double PosX { get => posX; set => posX = value; }
-        public double PosY { get => posY; set => posY = value; }
-        public Image Image { get => image; set => image = value; }
+
+        //コンストラクタ
+        public SoccerBall(double xp, double yp)
+            : base(xp, yp, @"pic\soccer_ball.png") {
+
+            int rndX = r.Next(-25, 25);
+            MoveX = (rndX != 0 ? rndX : 1); //乱数で移動量を設定
+            int rndY = r.Next(-25, 25);
+            MoveY = (rndY != 0 ? rndY : 1); //乱数で移動量を設定
+        }
 
         //メソッド
-        public void Move() {
-            posX += moveX;
-            Console.WriteLine("座標X："　+ posX);
-            posY += moveY;
-            Console.WriteLine("座標Y：" + posY);
-           
-            if (PosX >= 750 || PosX < 0){
-                moveX *= -1;
-            }else if(PosY >= 530 || PosY < 0){
-                moveY *= -1;
-            }
+        public override void Move() {
+
+            Console.WriteLine("Ｘ座標 = {0}, Ｙ座標 = {1}", PosX, PosY);
+
+            if (PosY > 520 || PosY < 0){MoveY = -MoveY;}
+            if (PosX > 730 || PosX < 0){MoveX = -MoveX;}
+            PosX += MoveX;
+            PosY += MoveY;
         }
     }
 }
