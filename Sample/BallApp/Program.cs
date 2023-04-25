@@ -17,7 +17,6 @@ namespace BallApp {
         private List<Obj> balls = new List<Obj>();
         private List<PictureBox> pbs = new List<PictureBox>();
         int Cnt = 0;
-        int rightLeft;
 
         static void Main(string[] args) {
             Application.Run(new Program());
@@ -70,7 +69,6 @@ namespace BallApp {
                 pbs.Add(pb);
 
                 //this.Text = "BallGame:" + TennisBall.Cnt;
-                rightLeft = 1;
                 moveTimer.Start();  //タイマースタート
             }
             Cnt++;
