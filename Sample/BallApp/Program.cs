@@ -18,6 +18,7 @@ namespace BallApp {
         private List<PictureBox> pbs = new List<PictureBox>();
         int Cnt = 0;
 
+
         static void Main(string[] args) {
             Application.Run(new Program());
         }
@@ -52,7 +53,6 @@ namespace BallApp {
                 pbs.Add(pb);
 
                 //this.Text = "BallGame:" + SoccerBall.Cnt;
-                rightLeft = 0;
                 moveTimer.Start();  //タイマースタート
             }
             if(e.Button == MouseButtons.Right)
