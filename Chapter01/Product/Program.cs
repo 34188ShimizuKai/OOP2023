@@ -36,21 +36,22 @@ namespace ProductSample {
 
             Console.WriteLine("誕生日を入力");
             Console.Write("西暦:");
-            String bYear = Console.ReadLine();
+            int bYear = int.Parse(Console.ReadLine()) ;
             Console.Write("月:");
-            String bMonth = Console.ReadLine();
+            int bMonth = int.Parse(Console.ReadLine());
             Console.Write("日:");
-            String bDay = Console.ReadLine();
+            int bDay = int.Parse(Console.ReadLine());
 
-            var bTmp = bYear + bMonth + bDay;
-
-            var birthDay = new DateTime(int.Parse(bYear),int.Parse(bMonth), int.Parse(bDay));
+            var birthDay = new DateTime(bYear,bMonth,bDay);
             //Console.WriteLine(birthDay);
-
+            #region 演習2
             DateTime dateTo = DateTime.Today;
-            double interval = (dateTo - birthDay).TotalDays;
-            Console.WriteLine("あなたは生まれてから{0}日目です。", interval);
+            TimeSpan interval = dateTo - birthDay;
+            Console.WriteLine("あなたは生まれてから{0}日目です。", interval.Days);
+            #endregion
 
+            string week = birthDay.ToString("ddd");
+            Console.WriteLine("あなたは{0}曜日に生まれました。",week);
 
 
         }
