@@ -20,38 +20,38 @@ namespace ProductSample {
             #endregion
 
             #region 演習1
-            //DateTime date = new DateTime(2023, 5, 8);
+            //var date = new DateTime(2023, 5, 8);
 
-            //DateTime date = DateTime.Today;
+            //var date = DateTime.Today;
             //Console.WriteLine("今日の日付:" + date.Year + "年" + date.Month + "月" + date.Day + "日");
 
             //10日後を求める
-            //DateTime daysAfter10 = date.AddDays(10);
+            //var daysAfter10 = date.AddDays(10);
             //Console.WriteLine("10日後:" + daysAfter10.Year + "年" + daysAfter10.Month + "月" + daysAfter10.Day + "日");
 
             //10日前を求める
-            //DateTime daysBefore10 = date.AddDays(-10);
+            //var daysBefore10 = date.AddDays(-10);
             //Console.WriteLine("10日前:" + daysBefore10.Year + "年" + daysBefore10.Month + "月" + daysBefore10.Day + "日");
             #endregion
 
+            //誕生日入力処理
             Console.WriteLine("誕生日を入力");
             Console.Write("西暦:");
-            int bYear = int.Parse(Console.ReadLine()) ;
+            var bYear = int.Parse(Console.ReadLine()) ;
             Console.Write("月:");
-            int bMonth = int.Parse(Console.ReadLine());
+            var bMonth = int.Parse(Console.ReadLine());
             Console.Write("日:");
-            int bDay = int.Parse(Console.ReadLine());
+            var bDay = int.Parse(Console.ReadLine());
 
-            var birthDay = new DateTime(bYear,bMonth,bDay);
-            //Console.WriteLine(birthDay);
+            //入力した年月日をDateTime型に変換
+            var birth = new DateTime(bYear,bMonth,bDay);
             #region 演習2
-            DateTime dateTo = DateTime.Today;
-            TimeSpan interval = dateTo - birthDay;
+            var dateTo = DateTime.Today;
+            TimeSpan interval = dateTo - birth;
             Console.WriteLine("あなたは生まれてから{0}日目です。", interval.Days);
             #endregion
 
-            string week = birthDay.ToString("ddd");
-            Console.WriteLine("あなたは{0}曜日に生まれました。",week);
+            Console.WriteLine("あなたは{0}曜日に生まれました。",birth.DayOfWeek);
 
 
         }
