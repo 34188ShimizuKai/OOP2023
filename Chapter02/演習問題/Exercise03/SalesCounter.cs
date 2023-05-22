@@ -15,9 +15,10 @@ namespace Exercise03 {
         }
 
         //店舗別売り上げを求める
-        public IDictionary<String, int> GetPerProductCategorySales() {
+        public IDictionary<String, int> GetPerProductSales() {
             var dict = new SortedDictionary<string, int>();
-            foreach (Sale sale in _sales) {
+            foreach (Sale sale in _sales)
+            {
                 if (dict.ContainsKey(sale.ProductCategory))
                     dict[sale.ProductCategory] += sale.Amount;//商品カテゴリ名が既に存在する（売り上げ加算）
                 else
@@ -25,6 +26,17 @@ namespace Exercise03 {
             }
             return dict;
         }
+        public IDictionary<String, int> GetPerStoreSales() {
+                var dict = new SortedDictionary<string, int>();
+                foreach (Sale sale in _sales)
+                {
+                    if (dict.ContainsKey(sale.ShopName))
+                        dict[sale.ShopName] += sale.Amount;//店名が既に存在する（売り上げ加算）
+                    else
+                        dict[sale.ShopName] = sale.Amount; //店名が存在しない（新規格納）
+                }
+                return dict;
+            }
         //売り上げデータを読み込み、Saleオブジェクトのリストを返す
         private IEnumerable<Sale> ReadSales(string filePath) {
            var sales = new List<Sale>();//売り上げデータを格納する
