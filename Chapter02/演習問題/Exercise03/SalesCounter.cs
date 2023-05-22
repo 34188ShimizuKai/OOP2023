@@ -15,13 +15,13 @@ namespace Exercise03 {
         }
 
         //店舗別売り上げを求める
-        public IDictionary<String, int> GetPerStoreSales() {
+        public IDictionary<String, int> GetPerProductCategorySales() {
             var dict = new SortedDictionary<string, int>();
             foreach (Sale sale in _sales) {
-                if (dict.ContainsKey(sale.ShopName))
-                    dict[sale.ShopName] += sale.Amount;//店名が既に存在する（売り上げ加算）
+                if (dict.ContainsKey(sale.ProductCategory))
+                    dict[sale.ProductCategory] += sale.Amount;//商品カテゴリ名が既に存在する（売り上げ加算）
                 else
-                    dict[sale.ShopName] = sale.Amount; //店名が存在しない（新規格納）
+                    dict[sale.ProductCategory] = sale.Amount; //商品カテゴリ名が存在しない（新規格納）
             }
             return dict;
         }

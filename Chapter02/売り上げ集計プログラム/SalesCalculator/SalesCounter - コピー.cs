@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Exercise03 {
+namespace SalesCalculator {
     class SalesCounter {
         private IEnumerable<Sale> _sales;
 
