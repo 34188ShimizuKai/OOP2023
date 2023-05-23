@@ -26,16 +26,22 @@ namespace Exercise01 {
         }
 
         private static void Exercise1_1(List<int> numbers) {
+            if(numbers.Exists(s => s % 8 == 0 || s % 9 == 0) == true)
+                Console.WriteLine("存在しています");
+            else
+                Console.WriteLine("存在していません");
         }
-
         private static void Exercise1_2(List<int> numbers) {
+            numbers.ForEach(s => Console.WriteLine(s / 2.0));
 
         }
 
         private static void Exercise1_3(List<int> numbers) {
+            
         }
 
         private static void Exercise1_4(List<int> numbers) {
+        
         }
     }
 }
