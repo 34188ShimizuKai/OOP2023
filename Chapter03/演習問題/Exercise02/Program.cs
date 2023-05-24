@@ -29,28 +29,29 @@ namespace Exercise02 {
                 var search = Console.ReadLine();
                 if (string.IsNullOrEmpty(search))
                     break;
-                if (names.Exists(s => s == search) == true) 
-                    Console.WriteLine(names.FindIndex(s => s == search));
+                if (names.Exists(s => s.Equals(search)).Equals(true)) 
+                    Console.WriteLine(names.FindIndex(s => s.Equals(search)));
                 else 
                     Console.WriteLine("-1");
             } while (true);
         }
 
         private static void Exercise2_2(List<string> names) {
-            Console.WriteLine(names.Count(s => s[0] == 'T'));
+            Console.WriteLine(names.Count(s => s[0] == 'o'));
         }
 
         private static void Exercise2_3(List<string> names) {
-            var list = names.Where(s => s.Contains('o')).ToList();
-            foreach (var item in list)
-                Console.WriteLine(item);
+            var contain = names.Where(s => s.Contains('o')).ToArray();
+            foreach (var name in contain)
+                Console.WriteLine(name);
         }
 
         private static void Exercise2_4(List<string> names) {
-            var list = names.Where(s => s[0] == 'B').ToList();
+            var selected = names.Where(s => s.StartsWith("B"))
+                              .Select(s => new { s, s.Length });
             //var length = list.Select(s => s.Length);
-            foreach (var item in list.Select(s => s.Length))
-                Console.WriteLine(item);
+            foreach (var item in selected)
+                Console.WriteLine("{0},{1}",item.s,item.Length);
         }
     }
 }
