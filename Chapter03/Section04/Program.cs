@@ -17,7 +17,7 @@ namespace Section04 {
             foreach (var s in query) 
                 Console.WriteLine(s);
             
-            Console.WriteLine("------------");
+            Console.WriteLine("----------");
 
             names[0] = "Osaka";
 
