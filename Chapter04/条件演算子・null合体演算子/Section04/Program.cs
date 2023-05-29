@@ -20,7 +20,17 @@ namespace Section04 {
             var message = GetMessage(code) ?? defaultMessage();
             Console.WriteLine(message);
             #endregion
-        }
+
+            #region null条件演算子
+            //Sale sale = new Sale{
+            //   Amount = 100,
+            //};
+            Sale sale = null;
+            int? ret = sale?.Amount;//「int?」はnull許容型、「?.」はnull条件演算子
+            Console.WriteLine(ret);
+
+            #endregion
+    }
 
         private static object GetMessage(string code) {
             return 123;
@@ -28,6 +38,15 @@ namespace Section04 {
 
         private static object defaultMessage() {
             return "Default Message";
+        }            
+        
+        public class Sale {
+            //店舗名 
+            public string ShopName { get; set; }
+            //商品カテゴリ
+            public string ProductCategory { get; set; }
+            //売上高
+            public int Amount { get; set; }
         }
     }
 }
