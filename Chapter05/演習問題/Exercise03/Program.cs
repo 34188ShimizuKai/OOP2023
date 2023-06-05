@@ -58,7 +58,10 @@ namespace Exercise03 {
         }
 
         private static void Exercise3_4(string text) {
-
+            string[] word = text.Split(' ');
+            foreach (var w in word)
+                if (w.Length <= 4)
+                    Console.WriteLine(w);
         }
 
         private static void Exercise3_5(string text) {
