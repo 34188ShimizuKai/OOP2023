@@ -36,7 +36,8 @@ namespace Exercise03 {
         }
 
         private static void Exercise3_2(string text) {
-
+            var result = text.Replace("big", "small");
+            Console.WriteLine("変換結果:{0}",result);
         }
 
         private static void Exercise3_3(string text) {
