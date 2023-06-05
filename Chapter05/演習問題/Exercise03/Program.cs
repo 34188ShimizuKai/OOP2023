@@ -25,12 +25,14 @@ namespace Exercise03 {
         }
 
         private static void Exercise3_1(string text) {
-            var cnt = 0;
+            #region　改善前1
+            /*var cnt = 0;
             foreach (var t in text)
                 if (t == ' ')
                     cnt++;
-            Console.WriteLine("空白数:{0}", cnt);
-            #region 改善前
+            Console.WriteLine("空白数:{0}", cnt);*/
+            #endregion
+            #region 改善前2
             //string[] word = text.Split(' ');
             //var cnt = -1;
 
@@ -39,6 +41,7 @@ namespace Exercise03 {
 
             //Console.WriteLine("空白数:{0}", cnt);
             #endregion
+            Console.WriteLine("空白数:{0}",(from word in text.Split(' ') select word).Count() - 1);
 
         }
 
@@ -65,10 +68,15 @@ namespace Exercise03 {
         }
 
         private static void Exercise3_5(string text) {
+            string[] word = text.Split(' ');
             var sb = new StringBuilder();
-            foreach (var word in text.Split(' ')) {
-                sb.Append(word + " ");
+            for(int i = 0; i < word.Length; i++) {
+                sb.Append(word[i]);
+                if(i < word.Length - 1)  {
+                    sb.Append(' ');
+                }
             }
+            sb.Append('a');
             var reText = sb.ToString();
             Console.WriteLine(reText);
         }
