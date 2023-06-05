@@ -41,8 +41,9 @@ namespace Exercise03 {
 
             //Console.WriteLine("空白数:{0}", cnt);
             #endregion
-            Console.WriteLine("空白数:{0}",(from word in text.Split(' ') select word).Count() - 1);
-
+            //Console.WriteLine("空白数:{0}",(from word in text.Split(' ') select word).Count() - 1);
+            var spaces = text.Count(s => s.ToString().Contains(' '));
+            Console.WriteLine("空白数:{0}",spaces);
         }
 
         private static void Exercise3_2(string text) {
@@ -51,7 +52,7 @@ namespace Exercise03 {
         }
 
         private static void Exercise3_3(string text) {
-            #region 改善前1
+            #region 改善前
             /*string[] word = text.Split(' ');
             var cnt = 0;
 
@@ -59,19 +60,27 @@ namespace Exercise03 {
                 cnt++;
             Console.WriteLine("単語数:{0}", cnt);*/
             #endregion
-            Console.WriteLine("単語数:{0}", (from word in text.Split(' ') select word).Count());
+            //Console.WriteLine("単語数:{0}", (from word in text.Split(' ') select word).Count());
+            int count = text.Split(' ').Length;
+            Console.WriteLine("単語数:{0}", count);
 
         }
 
         private static void Exercise3_4(string text) {
-            string[] word = text.Split(' ');
-            foreach (var w in word)
-                if (w.Length <= 4)
-                    Console.WriteLine(w);
+            #region 改善前
+            //string[] word = text.Split(' ');
+            //foreach (var w in word)
+            //   if (w.Length <= 4)
+            //       Console.WriteLine(w);
+            #endregion
+            var words = text.Split(' ').Where(word => word.Length <= 4);
+            foreach (var word in words)
+                Console.WriteLine(word);
         }
 
         private static void Exercise3_5(string text) {
-            string[] word = text.Split(' ');
+            #region 改善前
+            /*string[] word = text.Split(' ');
             var sb = new StringBuilder();
             for(int i = 0; i < word.Length; i++) {
                 sb.Append(word[i]);
@@ -79,9 +88,21 @@ namespace Exercise03 {
                     sb.Append(' ');
                 }
             }
-            sb.Append('a');
             var reText = sb.ToString();
-            Console.WriteLine(reText);
+            Console.WriteLine(reText);*/
+            #endregion
+            var array = text.Split(' ').ToArray();
+
+            if (array.Length > 0) { 
+                var sb = new StringBuilder(array[0]);
+                foreach (var word in array.Skip(1))
+                {
+                    sb.Append(' ');
+                    sb.Append(word);
+                }
+                var createWords = sb.ToString();
+                Console.WriteLine(createWords);
+            }
         }
     }
 }
