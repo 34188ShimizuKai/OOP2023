@@ -25,13 +25,20 @@ namespace Exercise03 {
         }
 
         private static void Exercise3_1(string text) {
-            string[] word = text.Split(' ');
-            int cnt = - 1;
+            var cnt = 0;
+            foreach (var t in text)
+                if (t == ' ')
+                    cnt++;
+            Console.WriteLine("空白数:{0}", cnt);
+            #region 改善前
+            //string[] word = text.Split(' ');
+            //var cnt = -1;
 
-            foreach (var w in word) 
-                cnt++;
-            
-            Console.WriteLine("空白数:{0}",cnt);
+            //foreach (var w in word)
+            //    cnt++;
+
+            //Console.WriteLine("空白数:{0}", cnt);
+            #endregion
 
         }
 
@@ -41,7 +48,13 @@ namespace Exercise03 {
         }
 
         private static void Exercise3_3(string text) {
+            string[] word = text.Split(' ');
+            var cnt = 0;
 
+            foreach (var w in word)
+                cnt++;
+            Console.WriteLine("単語数:{0}", cnt);
+            
         }
 
         private static void Exercise3_4(string text) {
