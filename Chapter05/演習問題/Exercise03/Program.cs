@@ -65,7 +65,12 @@ namespace Exercise03 {
         }
 
         private static void Exercise3_5(string text) {
-
+            var sb = new StringBuilder();
+            foreach (var word in text.Split(' ')) {
+                sb.Append(word + " ");
+            }
+            var reText = sb.ToString();
+            Console.WriteLine(reText);
         }
     }
 }
