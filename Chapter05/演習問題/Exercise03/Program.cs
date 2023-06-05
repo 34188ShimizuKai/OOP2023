@@ -46,18 +46,21 @@ namespace Exercise03 {
         }
 
         private static void Exercise3_2(string text) {
-            var result = text.Replace("big", "small");
-            Console.WriteLine("変換結果:{0}",result);
+            var replaced = text.Replace("big", "small");
+            Console.WriteLine("変換結果:{0}",replaced);
         }
 
         private static void Exercise3_3(string text) {
-            string[] word = text.Split(' ');
+            #region 改善前1
+            /*string[] word = text.Split(' ');
             var cnt = 0;
 
             foreach (var w in word)
                 cnt++;
-            Console.WriteLine("単語数:{0}", cnt);
-            
+            Console.WriteLine("単語数:{0}", cnt);*/
+            #endregion
+            Console.WriteLine("単語数:{0}", (from word in text.Split(' ') select word).Count());
+
         }
 
         private static void Exercise3_4(string text) {
