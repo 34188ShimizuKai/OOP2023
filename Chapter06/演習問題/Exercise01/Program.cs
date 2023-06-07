@@ -32,7 +32,7 @@ namespace Exercise01 {
         private static void Exercise1_2(int[] numbers) {
             var backNumbers = numbers.Skip(numbers.Length - 2).ToArray();
 
-                Console.Write(backNumbers[0]);
+                Console.Write("最後尾から2つの値:{0}",backNumbers[0]);
                 foreach (var n in backNumbers.Skip(1)) {
                     Console.Write(",");
                     Console.Write(n);
@@ -43,7 +43,7 @@ namespace Exercise01 {
         private static void Exercise1_3(int[] numbers) {
             var stringNumbers = numbers.Select(n => n.ToString()).ToArray();
 
-            Console.Write(stringNumbers[0]);
+            Console.Write("文字列化した数値:{0}",stringNumbers[0]);
             foreach (var n in stringNumbers) { 
                 Console.Write(",");
                 Console.Write(n);
@@ -52,10 +52,18 @@ namespace Exercise01 {
         }
 
         private static void Exercise1_4(int[] numbers) {
+            var orderBackNumbers = (numbers.OrderBy(x => x)).Take(3).ToArray();
 
+            Console.Write("昇順化後の先頭3つの値:{0}",orderBackNumbers[0]);
+            foreach (var n in orderBackNumbers.Skip(1)) {
+                Console.Write(",");
+                Console.Write(n);
+            }
+            Console.WriteLine();
         }
-
+        
         private static void Exercise1_5(int[] numbers) {
+            //var moreCount =
         }
     }
 }
