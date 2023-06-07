@@ -30,7 +30,7 @@ namespace Exercise01 {
         }
 
         private static void Exercise1_2(int[] numbers) {
-            var backNumbers = numbers.Skip(numbers.Length - 4).ToArray();
+            var backNumbers = numbers.Skip(numbers.Length - 2).ToArray();
 
                 Console.Write(backNumbers[0]);
                 foreach (var n in backNumbers.Skip(1)) {
@@ -52,6 +52,7 @@ namespace Exercise01 {
         }
 
         private static void Exercise1_4(int[] numbers) {
+
         }
 
         private static void Exercise1_5(int[] numbers) {
