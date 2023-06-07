@@ -32,8 +32,6 @@ namespace Exercise01 {
         private static void Exercise1_2(int[] numbers) {
             var backNumbers = numbers.Skip(numbers.Length - 4).ToArray();
 
-            Console.Write("後ろから2個の要素:");
-
                 Console.Write(backNumbers[0]);
                 foreach (var n in backNumbers.Skip(1)) {
                     Console.Write(",");
@@ -43,7 +41,14 @@ namespace Exercise01 {
         }
 
         private static void Exercise1_3(int[] numbers) {
-            
+            var stringNumbers = numbers.Select(n => n.ToString()).ToArray();
+
+            Console.Write(stringNumbers[0]);
+            foreach (var n in stringNumbers) { 
+                Console.Write(",");
+                Console.Write(n);
+            }
+            Console.WriteLine();
         }
 
         private static void Exercise1_4(int[] numbers) {
