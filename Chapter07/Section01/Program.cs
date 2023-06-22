@@ -42,8 +42,9 @@ namespace Section01 {
                 capital = Console.ReadLine();
 
                 if (prefDict.ContainsKey(pref)) {
-                    Console.WriteLine("既に格納された県名が入力されています。");
-                    Console.Write("上書きしますか？(はい:0,いいえ:1):");
+                    Console.WriteLine("既に存在している県名が入力されています。");
+                    Console.WriteLine("上書きしますか？(はい:0,いいえ:1)");
+                    Console.Write(">");
                     duplication = Console.ReadLine();
 
                     if (duplication == "0" || duplication == "０") {
@@ -59,13 +60,25 @@ namespace Section01 {
             }
 
             Console.WriteLine();
-            Console.Write("県名を入力:");
-            string searcher = Console.ReadLine();
 
-            if (prefDict.ContainsKey(searcher)) {
-                Console.WriteLine("{0}です。", prefDict[searcher]);
-            } else {
-                Console.WriteLine("{0}のデータは存在しません。",searcher);
+            Console.WriteLine("1:一覧表示 2:県名指定");
+            Console.Write(">");
+            string choicer = Console.ReadLine();
+
+            if (choicer == "1" || choicer == "１") {
+                foreach (var p in prefDict) {
+                    Console.WriteLine("{0}({1})", p.Key, p.Value);
+                }
+            }
+            if (choicer == "2" || choicer == "２") {
+                Console.Write("県名を入力:");
+                string searcher = Console.ReadLine();
+
+                if (prefDict.ContainsKey(searcher)) {
+                    Console.WriteLine("{0}です。", prefDict[searcher]);
+                } else {
+                    Console.WriteLine("{0}のデータは存在しません。", searcher);
+                }
             }
         }
     }
