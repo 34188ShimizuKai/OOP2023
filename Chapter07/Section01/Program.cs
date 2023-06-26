@@ -81,5 +81,9 @@ namespace Section01 {
                 }
             }
         }
+        class CityInfo {
+            string City { get; set; }
+            string Population { get; set; }
+        }
     }
 }
