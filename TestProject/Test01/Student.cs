@@ -1,6 +1,6 @@
 ﻿namespace Test01 {
     class Student {
-        //生徒氏名 
+        //生徒の名前
         public string Name { get; set; }
         //科目名
         public string Subject { get; set; }
