@@ -14,7 +14,7 @@ namespace Test01 {
         }
 
 
-        //メソッドの概要： 
+        //メソッドの概要:生徒点数データを読み込んで取り出す。
         private static IEnumerable<Student> ReadScore(string filePath) {
             var scores = new List<Student>();//点数データを格納する
             var lines = File.ReadAllLines(filePath);//ファイルからすべてのデータを読み込む
@@ -44,15 +44,15 @@ namespace Test01 {
 
         }
 
-        //メソッドの概要： 
+        //メソッドの概要：科目別に点数を集計
         public IDictionary<string, int> GetPerStudentScore() {
             var dict = new SortedDictionary<string, int>();
             foreach (Student score in _score)
             {
                 if (dict.ContainsKey(score.Subject))
-                    dict[score.Subject] += score.Score;//生徒が既に存在する（点数加算）
+                    dict[score.Subject] += score.Score;//科目が既に存在する（点数加算）
                 else
-                    dict[score.Subject] = score.Score; //生徒が存在しない（新規格納）
+                    dict[score.Subject] = score.Score; //科目が存在しない（新規格納）
             }
             return dict;
         }
