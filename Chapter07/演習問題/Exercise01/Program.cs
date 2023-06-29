@@ -19,26 +19,47 @@ namespace Exercise01 {
             var alphabetDict = new Dictionary<Char, int>();
             foreach (var alphabet in text.ToUpper().Where(s => s != ' '))
             {
-
-                if (alphabetDict.ContainsKey(alphabet))
+                if ('A' <= alphabet && alphabet <= 'Z')
                 {
-                    alphabetDict[alphabet] += 1;
-                }
-                else
-                {
+                    if (alphabetDict.ContainsKey(alphabet))
+                    {
+                        alphabetDict[alphabet] += 1;
+                    }
+                    else
+                    {
 
-                    alphabetDict[alphabet] = 1;
+                        alphabetDict[alphabet] = 1;
+                    }
                 }
             }
 
-            foreach (var item in alphabetDict.OrderBy(a => a.Key))
-            {
+            foreach (var item in alphabetDict.OrderBy(a => a.Key)){
                 Console.WriteLine("{0}:{1}",item.Key,item.Value);
             }
         }
 
         private static void Exercise1_2(string text) {
- 
+            var alphabetDict = new SortedDictionary<Char, int>();
+            foreach (var alphabet in text.ToUpper().Where(s => s != ' '))
+            {
+                if ('A' <= alphabet && alphabet <= 'Z')
+                {
+                    if (alphabetDict.ContainsKey(alphabet))
+                    {
+                        alphabetDict[alphabet] += 1;
+                    }
+                    else
+                    {
+
+                        alphabetDict[alphabet] = 1;
+                    }
+                }
+            }
+
+            foreach (var item in alphabetDict)
+            {
+                Console.WriteLine("{0}:{1}", item.Key, item.Value);
+            }
         }
     }
 }
