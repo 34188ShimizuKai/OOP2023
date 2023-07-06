@@ -18,7 +18,7 @@ namespace Exercise02 {
 
         public static DateTime NextDay(DateTime date, DayOfWeek dayOfWeek) {
             var days = (int)dayOfWeek - (int)(date.DayOfWeek);
-                days += 7;
+            days += 7;
             return date.AddDays(days);
         }
 
