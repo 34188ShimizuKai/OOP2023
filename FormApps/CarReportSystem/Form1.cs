@@ -37,7 +37,7 @@ namespace CarReportSystem {
         }
         private CarReport.MakerGroup getSelectedMaker(){
 
-            if (rbSubaru.Checked == true)
+            /*if (rbSubaru.Checked == true)
                 return CarReport.MakerGroup.スバル;
             if (rbNissan.Checked == true)
                 return CarReport.MakerGroup.日産;
@@ -50,7 +50,10 @@ namespace CarReportSystem {
             if (rbImport.Checked == true)
                 return CarReport.MakerGroup.輸入車;
             if (rbOther.Checked == true)
-                return CarReport.MakerGroup.その他;
+                return CarReport.MakerGroup.その他;*/
+            foreach (RadioButton rb in gbMaker.Controls)
+                if((bool)rb.Checked)
+
 
             return CarReport.MakerGroup.トヨタ;
         }
