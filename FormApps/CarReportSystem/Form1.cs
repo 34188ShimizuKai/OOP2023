@@ -28,7 +28,7 @@ namespace CarReportSystem {
             {
                 Date = dtbDate.Value,
                 Author = cbAuthor.Text,
-               // Maker = getSelectedMaker(),
+               Maker = getSelectedMaker(),
                 CarName = cbCarName.Text,
                 Report = tbReport.Text,
                 CarImage = pbCarImage.Image,
@@ -37,14 +37,22 @@ namespace CarReportSystem {
         }
         private CarReport.MakerGroup getSelectedMaker(){
 
-            var RadioButtonChecked_InGroup = gbMaker.Controls.OfType<RadioButton>()
-            .SingleOrDefault(rb => rb.Checked == true);
-
-            if (RadioButtonChecked_InGroup == rbToyota)      
-                return CarReport.MakerGroup.トヨタ;
-            if (RadioButtonChecked_InGroup == rbSubaru)
+            if (rbSubaru.Checked == true)
+                return CarReport.MakerGroup.スバル;
+            if (rbNissan.Checked == true)
                 return CarReport.MakerGroup.日産;
-            return CarReport.MakerGroup.その他;
+            if (rbSuzuki.Checked == true)
+                return CarReport.MakerGroup.スズキ;
+            if (rbHonda.Checked == true)
+                return CarReport.MakerGroup.ホンダ;
+            if (rbDaihatsu.Checked == true)
+                return CarReport.MakerGroup.ダイハツ;
+            if (rbImport.Checked == true)
+                return CarReport.MakerGroup.輸入車;
+            if (rbOther.Checked == true)
+                return CarReport.MakerGroup.その他;
+
+            return CarReport.MakerGroup.トヨタ;
         }
 
     }
