@@ -57,7 +57,7 @@ namespace CalendarApp {
             // btDayCalc
             // 
             this.btDayCalc.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btDayCalc.Location = new System.Drawing.Point(17, 64);
+            this.btDayCalc.Location = new System.Drawing.Point(95, 84);
             this.btDayCalc.Name = "btDayCalc";
             this.btDayCalc.Size = new System.Drawing.Size(119, 42);
             this.btDayCalc.TabIndex = 2;
@@ -96,7 +96,7 @@ namespace CalendarApp {
             // btAge
             // 
             this.btAge.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btAge.Location = new System.Drawing.Point(17, 123);
+            this.btAge.Location = new System.Drawing.Point(95, 148);
             this.btAge.Name = "btAge";
             this.btAge.Size = new System.Drawing.Size(119, 42);
             this.btAge.TabIndex = 12;
