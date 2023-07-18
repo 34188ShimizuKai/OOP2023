@@ -12,7 +12,7 @@ namespace CarReportSystem {
     public partial class Form1 : Form {
         //管理用データ
         BindingList<CarReport> CarReports = new BindingList<CarReport>();
-
+        private int mode = 0;
         public Form1() {
             InitializeComponent();
             dgvCarReports.DataSource = CarReports;
@@ -151,8 +151,8 @@ namespace CarReportSystem {
             //画像出力
         }
         private void btImageOpen_Click(object sender, EventArgs e) {
-            ofdImageFileOpen.ShowDialog();
-            pbCarImage.Image = Image.FromFile(ofdImageFileOpen.FileName);
+            if (ofdImageFileOpen.ShowDialog() == DialogResult.OK)
+                pbCarImage.Image = Image.FromFile(ofdImageFileOpen.FileName);
         }
         //入力済データ削除
         private void btDeleteReport_Click(object sender, EventArgs e) {
@@ -215,6 +215,11 @@ namespace CarReportSystem {
         private void 色設定ToolStripMenuItem_Click(object sender, EventArgs e) {
             if (cdColor.ShowDialog() == DialogResult.OK)
                 BackColor = cdColor.Color;
+        }
+
+        private void btScaleChange_Click(object sender, EventArgs e) {
+            mode = mode < 4 ? ++mode : 0;
+            pbCarImage.SizeMode = (PictureBoxSizeMode)mode;
         }
     }
 }
