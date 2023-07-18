@@ -21,21 +21,22 @@ namespace CarReportSystem {
         private void Form1_Load(object sender, EventArgs e) {
             dgvCarReports.Columns[5].Visible = false;//画像項目非表示
         }
+        private void statasLabelDisp(string msg = "") {
+            tsInfoText.Text = msg;
+        }
         //追加ボタンクリック時のイベントハンドラー
         private void btAddReport_Click(object sender, EventArgs e) {
-            if (cbAuthor.Text == "")
+            statasLabelDisp();　//ステータスラベルのテキスト非表示
+            if (cbAuthor.Text.Equals(""))
             {
-                tsInfoText.Text = "記録者を入力してください";
-                return;
-            }else if (cbCarName.Text == ""){
-                tsInfoText.Text = "車名を入力してください";
+                statasLabelDisp("記録者を入力してください");
                 return;
             }
-            else
+            else if (cbCarName.Text.Equals(""))
             {
-                tsInfoText.Text = "";
+                statasLabelDisp("車名を入力してください");
+                return;
             }
-
             var CarReport = new CarReport
             {
                 Date = dtpDate.Value,
@@ -45,10 +46,18 @@ namespace CarReportSystem {
                 Report = tbReport.Text,
                 CarImage = pbCarImage.Image,
             };
+    
+            //各ｃｂ履歴操作
+            if (!cbAuthor.Items.Contains(cbAuthor.Text)) 
+                cbAuthor.Items.Add(cbAuthor.Text);
+            if(!cbCarName.Items.Contains(cbCarName.Text))
+                cbCarName.Items.Add(cbAuthor.Text);
+    
             CarReports.Add(CarReport);
             clear();
-            btAdministrator();
+            maskAdmin();
             dgvCarReports.ClearSelection();
+
 
         }
         //入力リセット
@@ -60,7 +69,7 @@ namespace CarReportSystem {
             tbReport.ResetText();
             pbCarImage.Image = null;
         }
-        private void btAdministrator() {
+        private void maskAdmin() {
             if (dgvCarReports.Rows.Count == 0)
             {
                 btModifyReport.Enabled = false;
@@ -143,7 +152,8 @@ namespace CarReportSystem {
         //入力済データ削除
         private void btDeleteReport_Click(object sender, EventArgs e) {
             CarReports.RemoveAt(dgvCarReports.CurrentRow.Index);
-            btAdministrator();
+            maskAdmin();
+            clear();
         }
         //データグリッドビュー
         private void dgvCarReports_CellContentClick(object sender, DataGridViewCellEventArgs e) {
@@ -156,12 +166,24 @@ namespace CarReportSystem {
         }
         //修正
         private void btModifyReport_Click(object sender, EventArgs e) {
-                CarReports[dgvCarReports.CurrentRow.Index].Date = dtpDate.Value;
-                CarReports[dgvCarReports.CurrentRow.Index].Author = cbAuthor.Text;
-                CarReports[dgvCarReports.CurrentRow.Index].Maker = getSelectedMaker();
-                CarReports[dgvCarReports.CurrentRow.Index].CarName = cbCarName.Text;
-                CarReports[dgvCarReports.CurrentRow.Index].Report = tbReport.Text;
-                dgvCarReports.Refresh();    //一覧更新
+            statasLabelDisp();　//ステータスラベルのテキスト非表示
+            if (cbAuthor.Text.Equals(""))
+            {
+                statasLabelDisp("記録者を入力してください");
+                return;
+            }
+            else if (cbCarName.Text.Equals(""))
+            {
+                statasLabelDisp("車名を入力してください");
+                return;
+            }
+            CarReports[dgvCarReports.CurrentRow.Index].Date = dtpDate.Value;
+            CarReports[dgvCarReports.CurrentRow.Index].Author = cbAuthor.Text;
+            CarReports[dgvCarReports.CurrentRow.Index].Maker = getSelectedMaker();
+            CarReports[dgvCarReports.CurrentRow.Index].CarName = cbCarName.Text;
+            CarReports[dgvCarReports.CurrentRow.Index].Report = tbReport.Text;
+            dgvCarReports.Refresh();    //一覧更新
+            clear();
         }
 
         private void 終了XToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -175,6 +197,10 @@ namespace CarReportSystem {
         private void バージョン情報ToolStripMenuItem_Click(object sender, EventArgs e) {
             var vf = new VersionForm();
             vf.ShowDialog();
+        }
+
+        private void btImageDelete_Click(object sender, EventArgs e) {
+            pbCarImage.Image = null;
         }
     }
 }
