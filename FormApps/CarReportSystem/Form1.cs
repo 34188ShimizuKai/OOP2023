@@ -211,5 +211,10 @@ namespace CarReportSystem {
         private void StatusStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e) {
 
         }
+
+        private void 色設定ToolStripMenuItem_Click(object sender, EventArgs e) {
+            if (cdColor.ShowDialog() == DialogResult.OK)
+                BackColor = cdColor.Color;
+        }
     }
 }
