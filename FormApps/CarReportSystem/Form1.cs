@@ -21,12 +21,20 @@ namespace CarReportSystem {
         private void Form1_Load(object sender, EventArgs e) {
             dgvCarReports.Columns[5].Visible = false;//画像項目非表示
         }
+        private void setCbAuthor(string author) {
+            if (!cbAuthor.Items.Contains(author))
+                cbAuthor.Items.Add(author);
+        }
+        private void setCbCarName(string carname) {
+            if (!cbCarName.Items.Contains(carname))
+                cbCarName.Items.Add(carname);
+        }
         private void statasLabelDisp(string msg = "") {
             tsInfoText.Text = msg;
         }
         //追加ボタンクリック時のイベントハンドラー
         private void btAddReport_Click(object sender, EventArgs e) {
-            statasLabelDisp();　//ステータスラベルのテキスト非表示
+            statasLabelDisp();
             if (cbAuthor.Text.Equals(""))
             {
                 statasLabelDisp("記録者を入力してください");
@@ -47,11 +55,8 @@ namespace CarReportSystem {
                 CarImage = pbCarImage.Image,
             };
     
-            //各ｃｂ履歴操作
-            if (!cbAuthor.Items.Contains(cbAuthor.Text)) 
-                cbAuthor.Items.Add(cbAuthor.Text);
-            if(!cbCarName.Items.Contains(cbCarName.Text))
-                cbCarName.Items.Add(cbAuthor.Text);
+            setCbAuthor(cbAuthor.Text);
+            setCbCarName(cbCarName.Text);
     
             CarReports.Add(CarReport);
             clear();
@@ -166,7 +171,7 @@ namespace CarReportSystem {
         }
         //修正
         private void btModifyReport_Click(object sender, EventArgs e) {
-            statasLabelDisp();　//ステータスラベルのテキスト非表示
+            statasLabelDisp();
             if (cbAuthor.Text.Equals(""))
             {
                 statasLabelDisp("記録者を入力してください");
@@ -201,6 +206,10 @@ namespace CarReportSystem {
 
         private void btImageDelete_Click(object sender, EventArgs e) {
             pbCarImage.Image = null;
+        }
+
+        private void StatusStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e) {
+
         }
     }
 }

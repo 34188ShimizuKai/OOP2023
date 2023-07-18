@@ -455,6 +455,7 @@ namespace CarReportSystem {
             this.StatusStrip.SizingGrip = false;
             this.StatusStrip.TabIndex = 11;
             this.StatusStrip.Text = "statusStrip1";
+            this.StatusStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.StatusStrip_ItemClicked);
             // 
             // tsInfoText
             // 
@@ -464,8 +465,7 @@ namespace CarReportSystem {
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
-            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
             // 
             // Form1
             // 
