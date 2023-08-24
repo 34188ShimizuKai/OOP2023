@@ -41,7 +41,7 @@ namespace CarReportSystem {
                 return;
             }
 
-            var carReport = new CarReport                            //Saleインスタンスを生成
+            var carReport = new CarReport
             {
                 Date = dtpDate.Value,
                 Author = cbAuthor.Text,
@@ -221,6 +221,20 @@ namespace CarReportSystem {
 
         private void tmTimeUpdate_Tick(object sender, EventArgs e) {
             tsTimeDisp.Text = DateTime.Now.ToString("yyyy年MM月dd日 HH時mm分ss秒");
+        }
+
+        private void 保存SToolStripMenuItem_Click(object sender, EventArgs e) {
+            if (sfdCarRepoSave.ShowDialog() == DialogResult.OK)
+            {
+
+            }
+        }
+
+        private void 開くOToolStripMenuItem_Click(object sender, EventArgs e) {
+            if (ofdCarRepoOpen.ShowDialog() == DialogResult.OK)
+            {
+
+            }
         }
     }
 }
