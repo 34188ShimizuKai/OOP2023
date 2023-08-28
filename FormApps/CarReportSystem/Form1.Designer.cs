@@ -65,8 +65,8 @@ namespace CarReportSystem {
             this.バージョン情報ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ofdImageFileOpen = new System.Windows.Forms.OpenFileDialog();
             this.statusDisp = new System.Windows.Forms.StatusStrip();
-            this.tsInfoText = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsTimeDisp = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tsInfoText = new System.Windows.Forms.ToolStripStatusLabel();
             this.cdColor = new System.Windows.Forms.ColorDialog();
             this.btScaleChange = new System.Windows.Forms.Button();
             this.tmTimeUpdate = new System.Windows.Forms.Timer(this.components);
@@ -513,17 +513,17 @@ namespace CarReportSystem {
             this.statusDisp.TabIndex = 14;
             this.statusDisp.Text = "インフォメーション";
             // 
-            // tsInfoText
-            // 
-            this.tsInfoText.Name = "tsInfoText";
-            this.tsInfoText.Size = new System.Drawing.Size(82, 17);
-            this.tsInfoText.Text = "インフォメーション";
-            // 
             // tsTimeDisp
             // 
             this.tsTimeDisp.Name = "tsTimeDisp";
             this.tsTimeDisp.Size = new System.Drawing.Size(55, 17);
             this.tsTimeDisp.Text = "時刻表示";
+            // 
+            // tsInfoText
+            // 
+            this.tsInfoText.Name = "tsInfoText";
+            this.tsInfoText.Size = new System.Drawing.Size(82, 17);
+            this.tsInfoText.Text = "インフォメーション";
             // 
             // btScaleChange
             // 
