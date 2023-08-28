@@ -140,15 +140,20 @@ namespace CarReportSystem {
             btDeleteReport.Enabled = false; //削除ボタン無効
 
             //設定ファイルを逆シリアル化して背景を設定
-            using(var reader = XmlReader.Create("settings.xml"))
+            try
             {
-                var serializer = new XmlSerializer(typeof(Settings));
-                settings = serializer.Deserialize(reader) as Settings;
-                BackColor = Color.FromArgb(settings.MainFormColor);
+                using (var reader = XmlReader.Create("settings.xml"))
+                {
+                    var serializer = new XmlSerializer(typeof(Settings));
+                    settings = serializer.Deserialize(reader) as Settings;
+                    BackColor = Color.FromArgb(settings.MainFormColor);
+                }
             }
-
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
-
         //削除ボタンイベントハンドラ
         private void btDeleteReport_Click(object sender, EventArgs e) {
             CarReports.RemoveAt(dgvCarReports.CurrentRow.Index);
