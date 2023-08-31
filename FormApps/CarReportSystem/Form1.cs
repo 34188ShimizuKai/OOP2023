@@ -137,6 +137,9 @@ namespace CarReportSystem {
             tsTimeDisp.Text = DateTime.Now.ToString("yyyy年MM月dd日 HH時mm分ss秒");
             tmTimeUpdate.Start();
 
+            dgvCarReports.RowsDefaultCellStyle.BackColor = Color.AliceBlue;
+            dgvCarReports.AlternatingRowsDefaultCellStyle.BackColor = Color.WhiteSmoke;
+
             dgvCarReports.Columns[5].Visible = false;   //画像項目非表示
             btModifyReport.Enabled = false; //修正ボタン無効
             btDeleteReport.Enabled = false; //削除ボタン無効
@@ -164,17 +167,7 @@ namespace CarReportSystem {
 
         //レコードの選択時
         private void dgvCarReports_Click(object sender, EventArgs e) {
-            if (dgvCarReports.Rows.Count != 0) {
-                dtpDate.Value = (DateTime)dgvCarReports.CurrentRow.Cells[0].Value;
-                cbAuthor.Text = dgvCarReports.CurrentRow.Cells[1].Value.ToString();
-                setSelectedMaker((CarReport.MakerGroup)dgvCarReports.CurrentRow.Cells[2].Value);
-                cbCarName.Text = dgvCarReports.CurrentRow.Cells[3].Value.ToString();
-                tbReport.Text = dgvCarReports.CurrentRow.Cells[4].Value.ToString();
-                pbCarImage.Image = (Image)dgvCarReports.CurrentRow.Cells[5].Value;
-
-                btModifyReport.Enabled = true;     //修正ボタン有効
-                btDeleteReport.Enabled = true;     //削除ボタン有効
-            }
+            
         }
         //修正ボタンイベントハンドラ
         private void btModifyReport_Click(object sender, EventArgs e) {
@@ -275,6 +268,21 @@ namespace CarReportSystem {
                 {
                     MessageBox.Show(ex.Message);
                 }
+            }
+        }
+
+        private void dgvCarReports_CellClick(object sender, DataGridViewCellEventArgs e) {
+            if (dgvCarReports.Rows.Count != 0)
+            {
+                dtpDate.Value = (DateTime)dgvCarReports.CurrentRow.Cells[0].Value;
+                cbAuthor.Text = dgvCarReports.CurrentRow.Cells[1].Value.ToString();
+                setSelectedMaker((CarReport.MakerGroup)dgvCarReports.CurrentRow.Cells[2].Value);
+                cbCarName.Text = dgvCarReports.CurrentRow.Cells[3].Value.ToString();
+                tbReport.Text = dgvCarReports.CurrentRow.Cells[4].Value.ToString();
+                pbCarImage.Image = (Image)dgvCarReports.CurrentRow.Cells[5].Value;
+
+                btModifyReport.Enabled = true;     //修正ボタン有効
+                btDeleteReport.Enabled = true;     //削除ボタン有効
             }
         }
     }
