@@ -131,7 +131,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "演習問題", "演習問�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise01", "Chapter12\演習問題\Exercise01\Exercise01.csproj", "{D7BFB1EC-87F5-474C-9079-544831B4EDF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise02", "..\..\..\Desktop\Exercise02\Exercise02.csproj", "{CE06D117-A92F-4BD0-A55F-2BC058B89449}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise02", "Chapter12\演習問題\Exercise02\Exercise02.csproj", "{CE06D117-A92F-4BD0-A55F-2BC058B89449}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
