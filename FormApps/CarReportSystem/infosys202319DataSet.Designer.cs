@@ -498,6 +498,7 @@ namespace CarReportSystem {
                 this.columnCarName.AllowDBNull = false;
                 this.columnCarName.MaxLength = 50;
                 this.columnReport.MaxLength = 500;
+                this.CaseSensitive = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
