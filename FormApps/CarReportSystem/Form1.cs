@@ -290,14 +290,17 @@ namespace CarReportSystem {
                 setSelectedMaker(dgvCarReports.CurrentRow.Cells[3].Value.ToString());
                 cbCarName.Text = dgvCarReports.CurrentRow.Cells[4].Value.ToString();
                 tbReport.Text = dgvCarReports.CurrentRow.Cells[5].Value.ToString();
-                if (!dgvCarReports.CurrentRow.Cells[6].Value.Equals(DBNull.Value))
+
+                pbCarImage.Image = !dgvCarReports.CurrentRow.Cells[6].Value.Equals(DBNull.Value) ?
+                    ByteArrayToImage((Byte[])dgvCarReports.CurrentRow.Cells[6].Value) : null;
+                /*if (!dgvCarReports.CurrentRow.Cells[6].Value.Equals(DBNull.Value))
                 {
                     pbCarImage.Image = ByteArrayToImage((Byte[])dgvCarReports.CurrentRow.Cells[6].Value);
                 }
                 else
                 {
                     pbCarImage.Image = null;
-                }
+                }*/
 
                 btModifyReport.Enabled = true;     //修正ボタン有効
                 btDeleteReport.Enabled = true;     //削除ボタン有効
