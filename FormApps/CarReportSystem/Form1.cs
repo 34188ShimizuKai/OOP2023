@@ -43,7 +43,20 @@ namespace CarReportSystem {
                 return;
             }
 
-            var carReport = new CarReport
+
+            DataRow newRow = infosys202319DataSet.CarReportTable.NewRow();
+            newRow[1] = dtpDate.Value;
+            newRow[2] = cbAuthor.Text;
+            newRow[3] = getSelectedMaker();
+            newRow[4] = cbCarName.Text;
+            newRow[5] = tbReport.Text;
+            newRow[6] = ImageToByteArray(pbCarImage.Image);
+
+            infosys202319DataSet.CarReportTable.Rows.Add(newRow);
+            this.carReportTableTableAdapter.Update(infosys202319DataSet.CarReportTable);
+
+
+            /*var carReport = new CarReport
             {
                 Date = dtpDate.Value,
                 Author = cbAuthor.Text,
@@ -52,7 +65,7 @@ namespace CarReportSystem {
                 Report = tbReport.Text,
                 CarImage = pbCarImage.Image,
             };
-            CarReports.Add(carReport);
+            CarReports.Add(carReport);*/
 
             setCbAuthor(cbAuthor.Text);     //記録者コンボボックスの履歴登録処理
             setCbCarName(cbCarName.Text);   //車名コンボボックスの履歴登録処理
@@ -179,6 +192,7 @@ namespace CarReportSystem {
             dgvCarReports.CurrentRow.Cells[4].Value = cbCarName.Text;
             dgvCarReports.CurrentRow.Cells[5].Value = tbReport.Text;
             dgvCarReports.CurrentRow.Cells[6].Value = pbCarImage.Image;
+
             /*if (dgvCarReports.Rows.Count != 0) {
                    CarReports[dgvCarReports.CurrentRow.Index].Date = dtpDate.Value;
                    CarReports[dgvCarReports.CurrentRow.Index].Author = cbAuthor.Text;
