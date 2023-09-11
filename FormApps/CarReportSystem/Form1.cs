@@ -268,10 +268,6 @@ namespace CarReportSystem {
             this.tableAdapterManager.UpdateAll(this.infosys202319DataSet);
 
         }
-
-        private void btConnection_Click(object sender, EventArgs e) {
-            dbConnection();    
-        }
         private void dbConnection() {
             this.carReportTableTableAdapter.Fill(this.infosys202319DataSet.CarReportTable);
             dgvCarReports.ClearSelection();
@@ -283,6 +279,19 @@ namespace CarReportSystem {
             }
         }
 
+        private void btAuthorSearch_Click(object sender, EventArgs e) {
+            carReportTableTableAdapter.FillByAuthor
+                (this.infosys202319DataSet.CarReportTable, tbAuthorSearch.Text);
+        }
 
+        private void btCarNameSearch_Click(object sender, EventArgs e) {
+            carReportTableTableAdapter.FillByCarName
+                (this.infosys202319DataSet.CarReportTable, tbCarNameSearch.Text);
+        }
+
+        private void btDateSearch_Click(object sender, EventArgs e) {
+            //carReportTableTableAdapter.FillByDate
+           //    (this.infosys202319DataSet.CarReportTable, dtpDateSearch.Value.ToString());
+        }
     }
 }
