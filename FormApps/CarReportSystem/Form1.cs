@@ -143,6 +143,7 @@ namespace CarReportSystem {
             dgvCarReports.AlternatingRowsDefaultCellStyle.BackColor = Color.WhiteSmoke;
 
             dgvCarReports.Columns[6].Visible = false;   //画像項目非表示
+            dgvCarReports.Columns[0].Visible = false;
             btModifyReport.Enabled = false; //修正ボタン無効
             btDeleteReport.Enabled = false; //削除ボタン無効
 
@@ -290,8 +291,12 @@ namespace CarReportSystem {
         }
 
         private void btDateSearch_Click(object sender, EventArgs e) {
-            //carReportTableTableAdapter.FillByDate
-           //    (this.infosys202319DataSet.CarReportTable, dtpDateSearch.Value.ToString());
+            carReportTableTableAdapter.FillByDate
+               (this.infosys202319DataSet.CarReportTable, dtpDateSearchFirst.Text,dtpDateSearchEnd.Text);
+        }
+
+        private void btReset_Click(object sender, EventArgs e) {
+            carReportTableTableAdapter.Fill(this.infosys202319DataSet.CarReportTable);
         }
     }
 }
