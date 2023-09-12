@@ -291,7 +291,7 @@ namespace CarReportSystem {
         }
 
         private void btDateSearch_Click(object sender, EventArgs e) {
-            carReportTableTableAdapter.FillByDate
+            carReportTableTableAdapter.FillByDateToDate
                (this.infosys202319DataSet.CarReportTable, dtpDateSearchFirst.Text,dtpDateSearchEnd.Text);
         }
 

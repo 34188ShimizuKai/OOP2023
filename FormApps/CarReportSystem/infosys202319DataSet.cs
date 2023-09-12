@@ -6,3 +6,10 @@
 }
 
 
+
+namespace CarReportSystem.infosys202319DataSetTableAdapters {
+    
+    
+    public partial class CarReportTableTableAdapter {
+    }
+}

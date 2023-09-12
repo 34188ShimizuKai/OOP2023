@@ -333,7 +333,7 @@ namespace CarReportSystem {
             this.tbReport.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbReport.Multiline = true;
             this.tbReport.Name = "tbReport";
-            this.tbReport.Size = new System.Drawing.Size(306, 297);
+            this.tbReport.Size = new System.Drawing.Size(293, 351);
             this.tbReport.TabIndex = 4;
             // 
             // dgvCarReports
@@ -359,7 +359,7 @@ namespace CarReportSystem {
             this.dgvCarReports.RowHeadersVisible = false;
             this.dgvCarReports.RowTemplate.Height = 21;
             this.dgvCarReports.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCarReports.Size = new System.Drawing.Size(468, 510);
+            this.dgvCarReports.Size = new System.Drawing.Size(468, 564);
             this.dgvCarReports.TabIndex = 11;
             this.dgvCarReports.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCarReports_CellClick);
             this.dgvCarReports.Click += new System.EventHandler(this.dgvCarReports_Click);
@@ -424,7 +424,7 @@ namespace CarReportSystem {
             this.btAddReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btAddReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btAddReport.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btAddReport.Location = new System.Drawing.Point(433, 335);
+            this.btAddReport.Location = new System.Drawing.Point(409, 304);
             this.btAddReport.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btAddReport.Name = "btAddReport";
             this.btAddReport.Size = new System.Drawing.Size(87, 33);
@@ -438,7 +438,7 @@ namespace CarReportSystem {
             this.btModifyReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btModifyReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btModifyReport.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btModifyReport.Location = new System.Drawing.Point(530, 335);
+            this.btModifyReport.Location = new System.Drawing.Point(517, 304);
             this.btModifyReport.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btModifyReport.Name = "btModifyReport";
             this.btModifyReport.Size = new System.Drawing.Size(87, 33);
@@ -452,7 +452,7 @@ namespace CarReportSystem {
             this.btDeleteReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btDeleteReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btDeleteReport.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btDeleteReport.Location = new System.Drawing.Point(626, 335);
+            this.btDeleteReport.Location = new System.Drawing.Point(623, 304);
             this.btDeleteReport.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btDeleteReport.Name = "btDeleteReport";
             this.btDeleteReport.Size = new System.Drawing.Size(87, 33);
@@ -544,7 +544,7 @@ namespace CarReportSystem {
             this.statusDisp.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsTimeDisp,
             this.tsInfoText});
-            this.statusDisp.Location = new System.Drawing.Point(0, 612);
+            this.statusDisp.Location = new System.Drawing.Point(0, 661);
             this.statusDisp.Name = "statusDisp";
             this.statusDisp.Size = new System.Drawing.Size(1284, 22);
             this.statusDisp.SizingGrip = false;
@@ -736,9 +736,9 @@ namespace CarReportSystem {
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.tbAuthorSearch);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Location = new System.Drawing.Point(419, 372);
+            this.groupBox1.Location = new System.Drawing.Point(409, 410);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(360, 206);
+            this.groupBox1.Size = new System.Drawing.Size(360, 225);
             this.groupBox1.TabIndex = 27;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "検索";
@@ -905,7 +905,7 @@ namespace CarReportSystem {
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1284, 634);
+            this.ClientSize = new System.Drawing.Size(1284, 683);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.carReportTableBindingNavigator);
             this.Controls.Add(this.btScaleChange);

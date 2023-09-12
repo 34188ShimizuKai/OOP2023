@@ -1112,7 +1112,7 @@ SELECT id, Date, Author, Maker, CarName, Report, CarImage FROM CarReportTable WH
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByDate(infosys202319DataSet.CarReportTableDataTable dataTable, string sdate, string edate) {
+        public virtual int FillByDateToDate(infosys202319DataSet.CarReportTableDataTable dataTable, string sdate, string edate) {
             this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((sdate == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;

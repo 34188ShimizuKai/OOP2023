@@ -106,7 +106,7 @@ WHERE                       (CarName LIKE N'%' + @carName + N'%')</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="infosys202319ConnectionString (Settings)" DbObjectName="infosys202319.dbo.CarReportTable" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByDate" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="FillByDate">
+              <DbSource ConnectionRef="infosys202319ConnectionString (Settings)" DbObjectName="infosys202319.dbo.CarReportTable" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByDateToDate" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByDateToDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="FillByDateToDate">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT                      id, Date, Author, Maker, CarName, Report, CarImage
