@@ -1,6 +1,7 @@
 ﻿using SampleEntityFramework.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,12 @@ namespace SampleEntityFramework {
 
             //DisplayAllBooks();
             //AddAuthors();
-            AddBooks();
+            //AddBooks();
+
+            foreach (var book in GetBooks()) 
+            {
+                Console.WriteLine($"{book.Title} {book.Author.Name}");
+            }
 
             Console.ReadLine();
             Console.WriteLine();
@@ -55,7 +61,7 @@ namespace SampleEntityFramework {
         static IEnumerable<Book> GetBooks() {
             using (var db = new BooksDbContext())
             {
-                return db.Books.Where(book => book.Author.Name.StartsWith("夏目")).ToList();
+                return db.Books.Where(book => book.PublishedYear > 1900).Include(nameof(Author)).ToList();
             }
         }
 
@@ -120,5 +126,27 @@ namespace SampleEntityFramework {
             }
         }
 
+        // List 13-11
+        private static void UpdateBook() {
+            using (var db = new BooksDbContext())
+            {
+                var book = db.Books.Single(x => x.Title == "銀河鉄道の夜");
+                book.PublishedYear = 2016;
+                db.SaveChanges();
+            }
+        }
+
+        // List 13-12
+        private static void DeleteBook() {
+            using (var db = new BooksDbContext())
+            {
+                var book = db.Books.SingleOrDefault(x => x.Id == 10);
+                if (book != null)
+                {
+                    db.Books.Remove(book);
+                    db.SaveChanges();
+                }
+            }
+        }
     }
 }
