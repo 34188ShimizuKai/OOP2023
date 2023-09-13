@@ -10,7 +10,7 @@ namespace SampleEntityFramework.Models {
         public Configuration() {
             AutomaticMigrationsEnabled = true;  //自動マイグレーションの有効化
             AutomaticMigrationDataLossAllowed = true;   //データロスを伴う更新を許可
-            ContextKey = "SampleEntityFramework.Models.BookDbContext";  //
+            ContextKey = "SampleEntityFramework.Models.BooksDbContext";  //
         }
     }
 }
