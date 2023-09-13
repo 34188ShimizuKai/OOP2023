@@ -10,7 +10,29 @@ using System.Threading.Tasks;
 namespace SampleEntityFramework {
     class Program {
         static void Main(string[] args) {
-            //InsertBooks();
+
+            Console.WriteLine("# 1.1");
+            Exercise1_1();
+
+            Console.WriteLine();
+            Console.WriteLine("# 1.2");
+            Exercise1_2();
+
+            Console.WriteLine();
+            Console.WriteLine("# 1.3");
+            Exercise1_3();
+
+            Console.WriteLine();
+            Console.WriteLine("# 1.4");
+            Exercise1_4();
+
+            Console.WriteLine();
+            Console.WriteLine("# 1.5");
+            Exercise1_5();
+
+            Console.ReadLine();//InsertBooks();
+
+            #region 参考
             //Console.WriteLine("データを挿入しました。続けるにはEnterキーを押してください。");
 
             //DisplayAllBooks();
@@ -21,7 +43,10 @@ namespace SampleEntityFramework {
             //{
             //    Console.WriteLine($"{book.Title} {book.Author.Name}");
             //}
-            using(var db = new BooksDbContext())
+
+            #endregion
+
+            using (var db = new BooksDbContext())
             {
                 db.Database.Log = sql => { Debug.Write(sql); };
                 var count = db.Books.Count();
@@ -30,6 +55,27 @@ namespace SampleEntityFramework {
             Console.ReadLine();
             Console.WriteLine();
         }
+
+        private static void Exercise1_1() {
+
+        }
+
+        private static void Exercise1_2() {
+
+        }
+
+        private static void Exercise1_3() {
+
+        }
+
+        private static void Exercise1_4() {
+
+        }
+
+        private static void Exercise1_5() {
+
+        }
+
         // List 13-5
         static void InsertBooks() {
             using (var db = new BooksDbContext())
