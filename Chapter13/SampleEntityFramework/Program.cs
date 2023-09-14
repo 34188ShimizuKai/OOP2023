@@ -78,46 +78,47 @@ namespace SampleEntityFramework {
                 db1.Authors.Add(author2);
                 db1.SaveChanges();
 
-                using (var db2 = new BooksDbContext())
-                {
-                    var author3 = db2.Authors.Single(a => a.Name == "夏目漱石");
-                    var book1 = new Book
-                    {
-                        Title = "こころ",
-                        PublishedYear = 1991,
-                        Author = author3
-                    };
-                    db2.Books.Add(book1);
-
-                    var author4 = db2.Authors.Single(a => a.Name == "川端康成");
-                    var book2 = new Book
-                    {
-                        Title = "伊豆の踊子",
-                        PublishedYear = 2003,
-                        Author = author4
-                    };
-                    db2.Books.Add(book2);
-                    var author5 = db2.Authors.Single(a => a.Name == "菊池寛");
-                    var book3 = new Book
-                    {
-                        Title = "真珠夫人",
-                        PublishedYear = 2002,
-                        Author = author5
-                    };
-                    db2.Books.Add(book3);
-                    var author6 = db2.Authors.Single(a => a.Name == "宮沢賢治");
-                    var book4 = new Book
-                    {
-                        Title = "注文の多い料理店",
-                        PublishedYear = 2000,
-                        Author = author6
-                    };
-                    db2.Books.Add(book4);
-
-                    db2.SaveChanges();
-                }
-
             }
+            using (var db2 = new BooksDbContext())
+            {
+                var author3 = db2.Authors.Single(a => a.Name == "夏目漱石");
+                var book1 = new Book
+                {
+                    Title = "こころ",
+                    PublishedYear = 1991,
+                    Author = author3
+                };
+                db2.Books.Add(book1);
+
+                var author4 = db2.Authors.Single(a => a.Name == "川端康成");
+                var book2 = new Book
+                {
+                    Title = "伊豆の踊子",
+                    PublishedYear = 2003,
+                    Author = author4
+                };
+                db2.Books.Add(book2);
+                var author5 = db2.Authors.Single(a => a.Name == "菊池寛");
+                var book3 = new Book
+                {
+                    Title = "真珠夫人",
+                    PublishedYear = 2002,
+                    Author = author5
+                };
+                db2.Books.Add(book3);
+                var author6 = db2.Authors.Single(a => a.Name == "宮沢賢治");
+                var book4 = new Book
+                {
+          
+                    Title = "注文の多い料理店",
+                    PublishedYear = 2000,
+                    Author = author6
+                };
+                db2.Books.Add(book4);
+
+                db2.SaveChanges();
+            }
+
         }
 
         private static void Exercise1_2() {
