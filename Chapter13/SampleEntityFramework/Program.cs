@@ -143,7 +143,20 @@ namespace SampleEntityFramework {
         }
 
         private static void Exercise1_4() {
-
+            int かうんと = 0;
+            using(var db = new BooksDbContext())
+            {
+                var books = db.Books.OrderBy(book => book.PublishedYear);
+                foreach (var book in books.ToList())
+                {
+                    Console.WriteLine($"{book.Title} {book.Author.Name}");
+                    かうんと++;
+                    if (かうんと == 3)
+                    {
+                        break;
+                    }
+                }
+            }
         }
 
         private static void Exercise1_5() {
