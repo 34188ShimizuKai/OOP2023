@@ -160,7 +160,16 @@ namespace SampleEntityFramework {
         }
 
         private static void Exercise1_5() {
+            /*using (var db = new BooksDbContext())
+            {
+                var authors = db.Authors.OrderByDescending(author => author.Birthday);
 
+
+                foreach (var author in authors)
+                {
+                    Console.WriteLine($"{book.Title} {book.PublishedYear}");
+                }
+            }*/
         }
 
         // List 13-5
