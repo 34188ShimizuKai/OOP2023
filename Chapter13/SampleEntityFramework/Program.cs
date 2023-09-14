@@ -12,7 +12,7 @@ namespace SampleEntityFramework {
         static void Main(string[] args) {
 
             Console.WriteLine("# 1.1");
-            Exercise1_1();
+            //Exercise1_1();
 
             Console.WriteLine();
             Console.WriteLine("# 1.2");
@@ -118,11 +118,14 @@ namespace SampleEntityFramework {
 
                 db2.SaveChanges();
             }
-
         }
 
         private static void Exercise1_2() {
-
+            var books = GetBooks();
+            foreach (var book in books)
+            {
+                Console.WriteLine($"{book.Title} {book.Author.Name}");
+            }
         }
 
         private static void Exercise1_3() {
