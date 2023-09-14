@@ -132,7 +132,13 @@ namespace SampleEntityFramework {
         private static void Exercise1_3() {
             using(var db = new BooksDbContext())
             {
-                //var a = db.Books.Where(book => book.Author.Name.Max());
+               
+                foreach (var book in db.Books.Where(book => book.Title.Length == db.Books.Max(b=>b.Title.Length)))
+                {
+                    Console.WriteLine(book.Title);
+                }
+
+                //var tmp = db.Books.OrderByDescending(s => s.Title.Length).First();
             }
         }
 
