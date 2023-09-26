@@ -143,33 +143,31 @@ namespace SampleEntityFramework {
         }
 
         private static void Exercise1_4() {
-            int かうんと = 0;
             using(var db = new BooksDbContext())
             {
-                var books = db.Books.OrderBy(book => book.PublishedYear);
+                var books = db.Books.OrderBy(book => book.PublishedYear).Take(3);
                 foreach (var book in books.ToList())
                 {
                     Console.WriteLine($"{book.Title} {book.Author.Name}");
-                    かうんと++;
-                    if (かうんと == 3)
-                    {
-                        break;
-                    }
                 }
             }
         }
 
         private static void Exercise1_5() {
-            /*using (var db = new BooksDbContext())
+            using (var db = new BooksDbContext())
             {
-                var authors = db.Authors.OrderByDescending(author => author.Birthday);
+                var authors = db.Authors.OrderByDescending(a => a.Birthday);
 
-
-                foreach (var author in authors)
+                foreach (var author in authors.ToList())
                 {
-                    Console.WriteLine($"{book.Title} {book.PublishedYear}");
+                   Console.WriteLine("{0} {1:yyyy/MM}",author.Name, author.Name);
+                    foreach(var book in author.Books)
+                    {
+                        Console.WriteLine("{0},{1}",book.Title,book.PublishedYear,book.Author.Name,book.Author.Birthday);
+                    }
+                    Console.WriteLine();
                 }
-            }*/
+            }
         }
 
         // List 13-5
