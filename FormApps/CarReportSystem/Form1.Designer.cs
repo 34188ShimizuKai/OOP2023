@@ -526,6 +526,7 @@ namespace CarReportSystem {
             this.tsInfoText.Name = "tsInfoText";
             this.tsInfoText.Size = new System.Drawing.Size(82, 17);
             this.tsInfoText.Text = "インフォメーション";
+            this.tsInfoText.Click += new System.EventHandler(this.tsInfoText_Click);
             // 
             // btScaleChange
             // 

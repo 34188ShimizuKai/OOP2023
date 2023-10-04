@@ -19,27 +19,40 @@ namespace RssReader {
         }
 
         private void btGet_Click(object sender, EventArgs e) {
-            lbRssTitle.Items.Clear();
-            using (var wc = new WebClient())
-            {
-                var url = wc.OpenRead(tbUrl.Text);
-                XDocument xdoc = XDocument.Load(url);
+            try {
+                lbRssTitle.Items.Clear();
+                using (var wc = new WebClient())
+                {
 
-                ItemDatas = xdoc.Root.Descendants("item").Select(x => new ItemData
-                    {
-                        Title = (string)x.Element("title"),
-                        Link = (string)x.Element("link")
-                    }).ToList();
+                    var url = wc.OpenRead(tbUrl.Text);
+                    XDocument xdoc = XDocument.Load(url);
+
+                    ItemDatas = xdoc.Root.Descendants("item").
+                        Select(x => new ItemData
+                        {
+                            Title = (string)x.Element("title"),
+                            Link = (string)x.Element("link")
+                        }).ToList();
 
                     foreach (var node in ItemDatas)
-                {
-                    //string s = Regex.Replace(node.Value, "【|】", ""); 
-                    lbRssTitle.Items.Add(node.Title);
+                    {
+                        //string s = Regex.Replace(node.Value, "【|】", ""); 
+                        lbRssTitle.Items.Add(node.Title);
+                    }
                 }
+            }
+            catch (ArgumentException)
+            {
+                tsinfo.Text = "URLが無効です";
+                tsinfo.ForeColor = Color.Red;
             }
         }
         private void lbRssTitle_Click(object sender, EventArgs e) {
             wbBrowser.Navigate(ItemDatas[lbRssTitle.SelectedIndex].Link);
+        }
+
+        private void Form1_Load(object sender, EventArgs e) {
+            tsinfo.Text = "";
         }
     }
 }

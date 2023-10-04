@@ -29,10 +29,15 @@ namespace RssReader {
             this.btGet = new System.Windows.Forms.Button();
             this.lbRssTitle = new System.Windows.Forms.ListBox();
             this.wbBrowser = new System.Windows.Forms.WebBrowser();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.tsinfo = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbUrl
             // 
+            this.tbUrl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbUrl.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.tbUrl.Location = new System.Drawing.Point(12, 12);
             this.tbUrl.Name = "tbUrl";
@@ -41,6 +46,7 @@ namespace RssReader {
             // 
             // btGet
             // 
+            this.btGet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btGet.Location = new System.Drawing.Point(577, 12);
             this.btGet.Name = "btGet";
             this.btGet.Size = new System.Drawing.Size(50, 31);
@@ -61,6 +67,9 @@ namespace RssReader {
             // 
             // wbBrowser
             // 
+            this.wbBrowser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.wbBrowser.Location = new System.Drawing.Point(222, 49);
             this.wbBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.wbBrowser.Name = "wbBrowser";
@@ -68,17 +77,36 @@ namespace RssReader {
             this.wbBrowser.Size = new System.Drawing.Size(847, 652);
             this.wbBrowser.TabIndex = 3;
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsinfo});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 694);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1081, 22);
+            this.statusStrip1.TabIndex = 4;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // tsinfo
+            // 
+            this.tsinfo.Name = "tsinfo";
+            this.tsinfo.Size = new System.Drawing.Size(51, 17);
+            this.tsinfo.Text = "ステータス";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1081, 716);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.wbBrowser);
             this.Controls.Add(this.lbRssTitle);
             this.Controls.Add(this.btGet);
             this.Controls.Add(this.tbUrl);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -90,6 +118,8 @@ namespace RssReader {
         private System.Windows.Forms.Button btGet;
         private System.Windows.Forms.ListBox lbRssTitle;
         private System.Windows.Forms.WebBrowser wbBrowser;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel tsinfo;
     }
 }
 

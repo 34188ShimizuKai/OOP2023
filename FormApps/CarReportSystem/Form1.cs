@@ -285,5 +285,9 @@ namespace CarReportSystem {
                 btDeleteReport.Enabled = true;     //削除ボタン有効
             }
         }
+
+        private void tsInfoText_Click(object sender, EventArgs e) {
+
+        }
     }
 }
