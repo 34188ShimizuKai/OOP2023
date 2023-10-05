@@ -16,7 +16,7 @@ namespace Exercise02 {
 
             foreach (var line in File.ReadLines(file))
             {
-                var matches = Regex.Matches(line, @"\b\d{3,}\b");
+                var matches = Regex.Matches(line, @"\b\d{3,}");
                 foreach (Match match in matches)
                 {
                     Console.WriteLine(match.Value);
