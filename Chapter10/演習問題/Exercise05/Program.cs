@@ -37,6 +37,10 @@ namespace Exercise05 {
 
             //ファイル出力
             File.WriteAllText(file, sb.ToString());
+
+            //これ以降は確認用
+            var text = File.ReadAllText("sample.html");
+            Console.WriteLine(text);
         }
     }
 }
