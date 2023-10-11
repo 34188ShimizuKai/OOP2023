@@ -59,9 +59,9 @@ namespace RssReader {
             // 
             this.lbRssTitle.FormattingEnabled = true;
             this.lbRssTitle.ItemHeight = 12;
-            this.lbRssTitle.Location = new System.Drawing.Point(12, 49);
+            this.lbRssTitle.Location = new System.Drawing.Point(12, 375);
             this.lbRssTitle.Name = "lbRssTitle";
-            this.lbRssTitle.Size = new System.Drawing.Size(190, 652);
+            this.lbRssTitle.Size = new System.Drawing.Size(316, 280);
             this.lbRssTitle.TabIndex = 2;
             this.lbRssTitle.Click += new System.EventHandler(this.lbRssTitle_Click);
             // 
@@ -70,11 +70,11 @@ namespace RssReader {
             this.wbBrowser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.wbBrowser.Location = new System.Drawing.Point(222, 49);
+            this.wbBrowser.Location = new System.Drawing.Point(351, 65);
             this.wbBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.wbBrowser.Name = "wbBrowser";
             this.wbBrowser.ScriptErrorsSuppressed = true;
-            this.wbBrowser.Size = new System.Drawing.Size(847, 652);
+            this.wbBrowser.Size = new System.Drawing.Size(685, 590);
             this.wbBrowser.TabIndex = 3;
             // 
             // statusStrip1
