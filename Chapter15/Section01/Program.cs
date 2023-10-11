@@ -62,7 +62,7 @@ namespace Section01 {
         }
 
 
-        //List 15-10
+        //List15-10
         public static void ToLookupSample() {
             var lookup = Library.Books
                                 .ToLookup(b => b.PublishedYear);
