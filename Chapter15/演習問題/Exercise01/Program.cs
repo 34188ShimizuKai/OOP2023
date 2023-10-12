@@ -35,15 +35,23 @@ namespace Exercise01 {
         }
 
         private static void Exercise1_4() {
-            
+            foreach (var book in Library.Books.OrderByDescending(b => b.PublishedYear).ThenByDescending(b => b.Price))
+            {
+                Console.WriteLine(book);
+            }
         }
 
         private static void Exercise1_5() {
-        
+            Console.WriteLine("【2016年のカテゴリ一覧】");
+            Console.Write("  ");
+            foreach (var category in Library.Books.Where(b => b.PublishedYear == 2016).Select(c => c.CategoryId).Distinct())
+            {
+                Console.Write(category + " ");
+            }
         }
 
         private static void Exercise1_6() {
-        
+            
         }
 
         private static void Exercise1_7() {
