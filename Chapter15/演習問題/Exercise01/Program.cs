@@ -30,17 +30,12 @@ namespace Exercise01 {
         }
 
         private static void Exercise1_3() {
-            var years = Library.Books.Select(y=>y.PublishedYear).Distinct().OrderBy(y=>y);
-
-            foreach (var year in years)
-            {
-                var count = Library.Books.Count(c => c.PublishedYear == year);
-                Console.WriteLine("西暦{0}年:{1}冊",year,count);
-            }
+            foreach (var year in Library.Books.Select(y => y.PublishedYear).Distinct().OrderBy(y => y))
+                Console.WriteLine("西暦{0}年:{1}冊",year, Library.Books.Count(c => c.PublishedYear == year));
         }
 
         private static void Exercise1_4() {
-        
+            
         }
 
         private static void Exercise1_5() {
