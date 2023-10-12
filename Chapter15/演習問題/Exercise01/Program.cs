@@ -35,18 +35,37 @@ namespace Exercise01 {
         }
 
         private static void Exercise1_4() {
-            foreach (var book in Library.Books.OrderByDescending(b => b.PublishedYear).ThenByDescending(b => b.Price))
-            {
-                Console.WriteLine(book);
-            }
+            var books = Library.Books
+                            .OrderByDescending(b => b.PublishedYear)
+                            .ThenByDescending(b => b.Price)
+                            .Join(Library.Categories,
+                                  book => book.CategoryId,
+                                  category => category.Id,
+                                  (book, category) => new 
+                                  {
+                                      Title = book.Title,
+                                      Category = category.Name,
+                                      Price =book.Price,
+                                      PublishedYear = book.PublishedYear
+                                  }
+                            );
+            
+            foreach (var book in books)
+                Console.WriteLine($"{book.PublishedYear}年 {book.Price}円 {book.Title} ({book.Category})");
         }
 
         private static void Exercise1_5() {
+            Category categories = new Category(); 
             Console.WriteLine("【2016年のカテゴリ一覧】");
-            Console.Write("  ");
-            foreach (var category in Library.Books.Where(b => b.PublishedYear == 2016).Select(c => c.CategoryId).Distinct())
+            var bookCategories = Library.Books
+                            .Where(b => b.PublishedYear == 2016)
+                            .Join(Library.Categories,
+                                  book => book.CategoryId,
+                                  category => category.Id,
+                                  (book, category) => category.Name).Distinct();
+            foreach (var category in bookCategories)
             {
-                Console.Write(category + " ");
+                Console.WriteLine("・" + category);
             }
         }
 
