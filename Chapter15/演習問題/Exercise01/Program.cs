@@ -91,7 +91,7 @@ namespace Exercise01 {
         }
 
         private static void Exercise1_7() {
-        
+            
         }
 
         private static void Exercise1_8() {
