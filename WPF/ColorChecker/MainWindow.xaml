@@ -19,24 +19,37 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Label Grid.Column="0" Grid.Row="0" Grid.RowSpan="4" Background="AliceBlue" Margin="0,0,0,-42"/>
-        
+        <Label x:Name="colorArea" Grid.Column="0" Grid.Row="0" Grid.RowSpan="4" Background="Black" Margin="0,0,0,-42"/>
+
         <Label Content="R" Grid.Column="1" Grid.Row="0" Margin="0,5,159,47" Grid.RowSpan="2"/>
         <Label Content="G" Grid.Column="1" Grid.Row="1" Margin="0,5,200,47" Grid.RowSpan="2"/>
         <Label Content="B" Grid.Column="1" Grid.Row="2" Margin="0,5,200,0"/>
 
-        <Slider x:Name="redSlider" HorizontalAlignment="Center" Grid.Row="0" Margin="25,10,20,10" Width="180" Grid.RowSpan="2" Grid.Column="1" ValueChanged="redSlider_ValueChanged" DragOver="redSlider_DragOver" Maximum="255"/>
-        <Slider x:Name="greenSlider" HorizontalAlignment="Center" Grid.Row="1" Margin="25,10,20,10" Width="180" Grid.RowSpan="2" Grid.Column="1" ValueChanged="greenSlider_ValueChanged" Maximum="255"/>
-        <Slider x:Name="blueSlider" HorizontalAlignment="Center" Grid.Row="2" Margin="25,10,20,10" Width="180" Grid.Column="1" ValueChanged="blueSlider_ValueChanged" Maximum="255"/>
-        <ComboBox Grid.Column="1" Grid.Row="3" Margin="10,13,10,6"/>
-        <TextBox Text="{Binding ElementName=redSlider,Path=Value,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+        <Slider x:Name="redSlider" HorizontalAlignment="Center" Grid.Row="0" Margin="25,10,20,10" Width="180" Grid.Column="1" ValueChanged="Slider_ValueChanged" Maximum="255" IsSnapToTickEnabled="True"/>
+        <Slider x:Name="greenSlider" HorizontalAlignment="Center" Grid.Row="1" Margin="25,10,20,10" Width="180" Grid.Column="1" ValueChanged="Slider_ValueChanged" Maximum="255" IsSnapToTickEnabled="True"/>
+        <Slider x:Name="blueSlider" HorizontalAlignment="Center" Grid.Row="2" Margin="25,10,20,10" Width="180" Grid.Column="1" ValueChanged="Slider_ValueChanged" Maximum="255" IsSnapToTickEnabled="True"/>
+        <ComboBox x:Name="colorComboBox" ItemsSource="{Binding}" SelectedValue="{Binding Color}" Grid.Column="1" Grid.Row="3" Margin="10,13,10,6" SelectionChanged="colorComboBox_SelectionChanged">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Border Width="20" Height="Auto" Margin="5,0" BorderThickness="1" BorderBrush="Black"  >
+                            <Border.Background>
+                                <SolidColorBrush Color="{Binding Color}"/>
+                            </Border.Background>
+                        </Border>
+                        <TextBlock Text="{Binding Name}"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <TextBox x:Name="redValue" Text="{Binding ElementName=redSlider,Path=Value,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
             Grid.Column="2" Grid.Row="0" Margin="6,16,32,13" />
-        <TextBox Text="{Binding ElementName=greenSlider,Path=Value,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+        <TextBox x:Name="greenValue" Text="{Binding ElementName=greenSlider,Path=Value,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
             Grid.Column="2" Grid.Row="1" Margin="6,16,32,13"/>
-        <TextBox Text="{Binding ElementName=blueSlider,Path=Value,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+        <TextBox x:Name="blueValue" Text="{Binding ElementName=blueSlider,Path=Value,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
             Grid.Column="2" Grid.Row="2" Margin="6,16,32,13"/>
 
-        <Button Content="STOCK" Grid.Column="3" Grid.Row="0" Margin="10,10,22,5"/>
-        <Label Grid.Column="3" Grid.Row="1" Grid.RowSpan="3" Background="Aqua" Margin="0,16,22,-42"/>
+        <Button x:Name="stockButton" Content="STOCK" Grid.Column="3" Grid.Row="0" Margin="10,10,22,5" Click="stockButton_Click"/>
+        <ListBox x:Name="stockList" Grid.Column="3" Grid.Row="1" Grid.RowSpan="3" Background="White" Margin="0,16,22,-42" SelectionChanged="stockList_SelectionChanged"/>
     </Grid>
 </Window>
