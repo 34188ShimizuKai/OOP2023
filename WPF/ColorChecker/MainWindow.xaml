@@ -25,9 +25,9 @@
         <Label Content="G" Grid.Column="1" Grid.Row="1" Margin="0,5,200,47" Grid.RowSpan="2"/>
         <Label Content="B" Grid.Column="1" Grid.Row="2" Margin="0,5,200,0"/>
 
-        <Slider x:Name="redSlider" HorizontalAlignment="Center" Grid.Row="0" Margin="25,10,20,10" Width="180" Grid.Column="1" ValueChanged="Slider_ValueChanged" Maximum="255" IsSnapToTickEnabled="True"/>
-        <Slider x:Name="greenSlider" HorizontalAlignment="Center" Grid.Row="1" Margin="25,10,20,10" Width="180" Grid.Column="1" ValueChanged="Slider_ValueChanged" Maximum="255" IsSnapToTickEnabled="True"/>
-        <Slider x:Name="blueSlider" HorizontalAlignment="Center" Grid.Row="2" Margin="25,10,20,10" Width="180" Grid.Column="1" ValueChanged="Slider_ValueChanged" Maximum="255" IsSnapToTickEnabled="True"/>
+        <Slider x:Name="redSlider" HorizontalAlignment="Right" Grid.Row="0" Margin="0,0,20,10" Width="180" Grid.Column="1" ValueChanged="Slider_ValueChanged" Maximum="255" IsSnapToTickEnabled="True" Height="21" VerticalAlignment="Bottom"/>
+        <Slider x:Name="greenSlider" HorizontalAlignment="Right" Grid.Row="1" Margin="0,0,20,10" Width="180" Grid.Column="1" ValueChanged="Slider_ValueChanged" Maximum="255" IsSnapToTickEnabled="True" Height="23" VerticalAlignment="Bottom"/>
+        <Slider x:Name="blueSlider" HorizontalAlignment="Right" Grid.Row="2" Margin="0,0,20,10" Width="180" Grid.Column="1" ValueChanged="Slider_ValueChanged" Maximum="255" IsSnapToTickEnabled="True" Height="24" VerticalAlignment="Bottom"/>
         <ComboBox x:Name="colorComboBox" ItemsSource="{Binding}" SelectedValue="{Binding Color}" Grid.Column="1" Grid.Row="3" Margin="10,13,10,6" SelectionChanged="colorComboBox_SelectionChanged">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
@@ -43,11 +43,11 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
         <TextBox x:Name="redValue" Text="{Binding ElementName=redSlider,Path=Value,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
-            Grid.Column="2" Grid.Row="0" Margin="6,16,32,13" />
+            Grid.Column="2" Grid.Row="0" Margin="0,0,32,13" HorizontalAlignment="Right" Width="52" Height="23" VerticalAlignment="Bottom" />
         <TextBox x:Name="greenValue" Text="{Binding ElementName=greenSlider,Path=Value,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-            Grid.Column="2" Grid.Row="1" Margin="6,16,32,13"/>
+            Grid.Column="2" Grid.Row="1" Margin="0,0,32,13" Height="23" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="52"/>
         <TextBox x:Name="blueValue" Text="{Binding ElementName=blueSlider,Path=Value,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-            Grid.Column="2" Grid.Row="2" Margin="6,16,32,13"/>
+            Grid.Column="2" Grid.Row="2" Margin="0,0,32,16" HorizontalAlignment="Right" Width="52" Height="24" VerticalAlignment="Bottom" RenderTransformOrigin="0.558,1"/>
 
         <Button x:Name="stockButton" Content="STOCK" Grid.Column="3" Grid.Row="0" Margin="10,10,22,5" Click="stockButton_Click"/>
         <ListBox x:Name="stockList" Grid.Column="3" Grid.Row="1" Grid.RowSpan="3" Background="White" Margin="0,16,22,-42" SelectionChanged="stockList_SelectionChanged"/>

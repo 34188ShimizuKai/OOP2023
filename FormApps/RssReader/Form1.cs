@@ -16,6 +16,7 @@ namespace RssReader {
         List<ItemData> ItemDatas = new List<ItemData>();
         public Form1() {
             InitializeComponent();
+            
         }
 
         private void btGet_Click(object sender, EventArgs e) {
