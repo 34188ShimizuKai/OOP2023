@@ -44,7 +44,7 @@ namespace SampleUnitConverter {
             this.MetricToImperialUnit = new DelegateCommand(
                 () => this.ImperialValue = this.CurrentImperialUnit.FromMetricUnit(
 
-                    this.CurrentMetricUnit, this.imperialValue));
+                    this.CurrentMetricUnit, this.MetricValue));
 
             this.ImperialUnitToMetric = new DelegateCommand(
                 () => this.MetricValue = this.CurrentMetricUnit.FromImperialUnit(
