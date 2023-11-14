@@ -55,5 +55,21 @@ namespace RssReader {
         private void Form1_Load(object sender, EventArgs e) {
             tsinfo.Text = "";
         }
+
+        private void rbScience_CheckedChanged(object sender, EventArgs e) {
+
+        }
+
+        private void tbIt_CheckedChanged(object sender, EventArgs e) {
+
+        }
+
+        private void rbDomestic_CheckedChanged(object sender, EventArgs e) {
+
+        }
+
+        private void rbWorld_CheckedChanged(object sender, EventArgs e) {
+
+        }
     }
 }

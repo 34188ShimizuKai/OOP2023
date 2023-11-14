@@ -205,6 +205,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeightUnitConverter", "WPF\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisibilityConverter", "WPF\VisibilityConverter\VisibilityConverter.csproj", "{2A0DAC2C-A269-4DC6-9428-611628C0338F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelloConsole", "..\..\..\Desktop\05_CS_Tello\TelloConsole\TelloConsole.csproj", "{628CA1E8-DE69-49CB-A774-64E4CEE86827}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -479,6 +481,10 @@ Global
 		{2A0DAC2C-A269-4DC6-9428-611628C0338F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A0DAC2C-A269-4DC6-9428-611628C0338F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A0DAC2C-A269-4DC6-9428-611628C0338F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{628CA1E8-DE69-49CB-A774-64E4CEE86827}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{628CA1E8-DE69-49CB-A774-64E4CEE86827}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{628CA1E8-DE69-49CB-A774-64E4CEE86827}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{628CA1E8-DE69-49CB-A774-64E4CEE86827}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
