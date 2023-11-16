@@ -33,11 +33,16 @@ namespace RssReader {
             this.tsinfo = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rbWorld = new System.Windows.Forms.RadioButton();
-            this.tbIt = new System.Windows.Forms.RadioButton();
+            this.rbIt = new System.Windows.Forms.RadioButton();
             this.rbDomestic = new System.Windows.Forms.RadioButton();
             this.rbScience = new System.Windows.Forms.RadioButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btInputUrl = new System.Windows.Forms.Button();
+            this.btDeleteUrl = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbNotFound = new System.Windows.Forms.Label();
+            this.cbMyList = new System.Windows.Forms.ComboBox();
+            this.tbLikeName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.statusStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -51,6 +56,7 @@ namespace RssReader {
             this.tbUrl.Name = "tbUrl";
             this.tbUrl.Size = new System.Drawing.Size(399, 31);
             this.tbUrl.TabIndex = 0;
+            this.tbUrl.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbUrl_KeyUp);
             // 
             // btGet
             // 
@@ -69,9 +75,9 @@ namespace RssReader {
             this.lbRssTitle.BackColor = System.Drawing.SystemColors.Window;
             this.lbRssTitle.FormattingEnabled = true;
             this.lbRssTitle.ItemHeight = 12;
-            this.lbRssTitle.Location = new System.Drawing.Point(514, 12);
+            this.lbRssTitle.Location = new System.Drawing.Point(501, 12);
             this.lbRssTitle.Name = "lbRssTitle";
-            this.lbRssTitle.Size = new System.Drawing.Size(512, 268);
+            this.lbRssTitle.Size = new System.Drawing.Size(525, 232);
             this.lbRssTitle.TabIndex = 2;
             this.lbRssTitle.Click += new System.EventHandler(this.lbRssTitle_Click);
             // 
@@ -106,7 +112,7 @@ namespace RssReader {
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.rbWorld);
-            this.groupBox1.Controls.Add(this.tbIt);
+            this.groupBox1.Controls.Add(this.rbIt);
             this.groupBox1.Controls.Add(this.rbDomestic);
             this.groupBox1.Controls.Add(this.rbScience);
             this.groupBox1.Location = new System.Drawing.Point(26, 68);
@@ -127,17 +133,17 @@ namespace RssReader {
             this.rbWorld.UseVisualStyleBackColor = true;
             this.rbWorld.CheckedChanged += new System.EventHandler(this.rbWorld_CheckedChanged);
             // 
-            // tbIt
+            // rbIt
             // 
-            this.tbIt.AutoSize = true;
-            this.tbIt.Location = new System.Drawing.Point(7, 41);
-            this.tbIt.Name = "tbIt";
-            this.tbIt.Size = new System.Drawing.Size(33, 16);
-            this.tbIt.TabIndex = 2;
-            this.tbIt.TabStop = true;
-            this.tbIt.Text = "IT";
-            this.tbIt.UseVisualStyleBackColor = true;
-            this.tbIt.CheckedChanged += new System.EventHandler(this.tbIt_CheckedChanged);
+            this.rbIt.AutoSize = true;
+            this.rbIt.Location = new System.Drawing.Point(7, 41);
+            this.rbIt.Name = "rbIt";
+            this.rbIt.Size = new System.Drawing.Size(33, 16);
+            this.rbIt.TabIndex = 2;
+            this.rbIt.TabStop = true;
+            this.rbIt.Text = "IT";
+            this.rbIt.UseVisualStyleBackColor = true;
+            this.rbIt.CheckedChanged += new System.EventHandler(this.rbIt_CheckedChanged);
             // 
             // rbDomestic
             // 
@@ -163,36 +169,99 @@ namespace RssReader {
             this.rbScience.UseVisualStyleBackColor = true;
             this.rbScience.CheckedChanged += new System.EventHandler(this.rbScience_CheckedChanged);
             // 
-            // textBox1
+            // btInputUrl
             // 
-            this.textBox1.Location = new System.Drawing.Point(176, 68);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(275, 35);
-            this.textBox1.TabIndex = 6;
+            this.btInputUrl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btInputUrl.Location = new System.Drawing.Point(787, 250);
+            this.btInputUrl.Name = "btInputUrl";
+            this.btInputUrl.Size = new System.Drawing.Size(47, 31);
+            this.btInputUrl.TabIndex = 10;
+            this.btInputUrl.Text = "★";
+            this.btInputUrl.UseVisualStyleBackColor = true;
+            this.btInputUrl.Click += new System.EventHandler(this.btInputUrl_Click);
             // 
-            // textBox2
+            // btDeleteUrl
             // 
-            this.textBox2.Location = new System.Drawing.Point(176, 128);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(275, 35);
-            this.textBox2.TabIndex = 7;
+            this.btDeleteUrl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btDeleteUrl.Location = new System.Drawing.Point(378, 81);
+            this.btDeleteUrl.Name = "btDeleteUrl";
+            this.btDeleteUrl.Size = new System.Drawing.Size(75, 23);
+            this.btDeleteUrl.TabIndex = 11;
+            this.btDeleteUrl.Text = "選択削除";
+            this.btDeleteUrl.UseVisualStyleBackColor = true;
+            this.btDeleteUrl.Click += new System.EventHandler(this.btDeleteUrl_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(135, 68);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 12);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "登録リスト";
+            // 
+            // tbNotFound
+            // 
+            this.tbNotFound.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbNotFound.AutoSize = true;
+            this.tbNotFound.BackColor = System.Drawing.SystemColors.Window;
+            this.tbNotFound.Font = new System.Drawing.Font("PMingLiU-ExtB", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNotFound.Location = new System.Drawing.Point(515, 28);
+            this.tbNotFound.Name = "tbNotFound";
+            this.tbNotFound.Size = new System.Drawing.Size(308, 48);
+            this.tbNotFound.TabIndex = 14;
+            this.tbNotFound.Text = "ああああああ";
+            // 
+            // cbMyList
+            // 
+            this.cbMyList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbMyList.FormattingEnabled = true;
+            this.cbMyList.Location = new System.Drawing.Point(137, 83);
+            this.cbMyList.Name = "cbMyList";
+            this.cbMyList.Size = new System.Drawing.Size(235, 20);
+            this.cbMyList.TabIndex = 12;
+            this.cbMyList.SelectedIndexChanged += new System.EventHandler(this.cbMyList_SelectedIndexChanged);
+            // 
+            // tbLikeName
+            // 
+            this.tbLikeName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbLikeName.Location = new System.Drawing.Point(546, 254);
+            this.tbLikeName.Name = "tbLikeName";
+            this.tbLikeName.Size = new System.Drawing.Size(235, 19);
+            this.tbLikeName.TabIndex = 15;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(499, 258);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 12);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "登録名";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1059, 738);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.tbLikeName);
+            this.Controls.Add(this.tbNotFound);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.cbMyList);
+            this.Controls.Add(this.btDeleteUrl);
+            this.Controls.Add(this.btInputUrl);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.wbBrowser);
             this.Controls.Add(this.lbRssTitle);
             this.Controls.Add(this.btGet);
             this.Controls.Add(this.tbUrl);
+            this.MinimumSize = new System.Drawing.Size(1000, 700);
             this.Name = "Form1";
+            this.Text = "a";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
@@ -213,11 +282,16 @@ namespace RssReader {
         private System.Windows.Forms.ToolStripStatusLabel tsinfo;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton rbWorld;
-        private System.Windows.Forms.RadioButton tbIt;
+        private System.Windows.Forms.RadioButton rbIt;
         private System.Windows.Forms.RadioButton rbDomestic;
         private System.Windows.Forms.RadioButton rbScience;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button btInputUrl;
+        private System.Windows.Forms.Button btDeleteUrl;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label tbNotFound;
+        private System.Windows.Forms.ComboBox cbMyList;
+        private System.Windows.Forms.TextBox tbLikeName;
+        private System.Windows.Forms.Label label1;
     }
 }
 

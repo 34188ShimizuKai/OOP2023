@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ColorChecker"
         mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="700" FontSize="15" FontFamily="Segoe UI Light" Loaded="Window_Loaded">
+        Title="MainWindow" Height="300" Width="700" FontSize="15" FontFamily="Segoe UI Light" Loaded="Window_Loaded" ResizeMode="NoResize">
     <Grid Margin="10,10,2,5">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="173"/>
